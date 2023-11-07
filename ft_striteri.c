@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sajaite <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 14:44:11 by sajaite           #+#    #+#             */
-/*   Updated: 2023/11/04 14:44:13 by sajaite          ###   ########.fr       */
+/*   Created: 2023/11/05 17:15:51 by sajaite           #+#    #+#             */
+/*   Updated: 2023/11/05 17:17:01 by sajaite          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_isalnum(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
+	unsigned int	i;
+
+	i = 0;
+	while (*s)
+	{
+		f(i, s);
+		s++;
+		i++;
+	}
 }
+/*
+void f(unsigned int index, char *c)
+{
+	printf("Character at index %u: %c\n", index, *c);
+}
+
+int main() {
+    char str[] = "0123456789";
+    ft_striteri(str, (*f));
+}
+*/

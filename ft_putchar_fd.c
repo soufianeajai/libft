@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sajaite <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 14:44:11 by sajaite           #+#    #+#             */
-/*   Updated: 2023/11/04 14:44:13 by sajaite          ###   ########.fr       */
+/*   Created: 2023/11/05 16:25:06 by sajaite           #+#    #+#             */
+/*   Updated: 2023/11/07 16:07:23 by sajaite          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_isalnum(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
+	if (c >= 0 && c <= 127)
+		write(fd, &c, 1);
 }

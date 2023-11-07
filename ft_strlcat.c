@@ -1,16 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sajaite <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/04 14:46:13 by sajaite           #+#    #+#             */
+/*   Updated: 2023/11/07 15:42:06 by sajaite          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
-
-size_t ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	if(!s)
-		return (0);
-	while (s[len])
-		len++;
-	return (len);
-}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -31,13 +31,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 			src_len++;
 		}
 	}
-	if (space_left > 0) // if there is no space we should not truncate dst.
+	if (space_left > 0)
 		dst[dst_len + src_len] = '\0';
-	return (dst_len + ft_strlen(src)); // the return value is the total length of the string that would have been created if there were no size constraints
+	return (dst_len + ft_strlen(src));
 }
-
-
-
+/*
 int main()
 {
 	int i  = 0;
@@ -45,13 +43,11 @@ int main()
 	char *dst = malloc(10);
 	char *dest = malloc(10);
 	while (i < 4)
-	{
+{
 		dst[i] = '0';
 		dest[i++] = '0';
 	}
-	printf("dst before ft_strlcat : %s\n", dst);
-	printf("dest before strlcat : %s\n", dest);
-	printf("%lu -- %s\n", ft_strlcat(dst, src, 3), dst);
-	printf("%lu -- %s\n", strlcat(dest, src, 3), dest);
+	printf("%lu -- %s\n", ft_strlcat(dst, src, 14), dst);
+	printf("%lu -- %s\n", strlcat(dest, src, 14), dest);
 }
-
+*/
